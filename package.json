@@ -1,7 +1,7 @@
 {
-  "name": "@fjedi/npm-package-template",
-  "version": "1.0.1",
-  "description": "NPM package template",
+  "name": "@fjedi/errors",
+  "version": "1.0.0",
+  "description": "Custom errors for better UX and debugging",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "files": [
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fjedi/npm-package-template.git"
+    "url": "git+https://github.com/fjedi/errors.git"
   },
   "keywords": [
     "fjedi"
@@ -34,9 +34,9 @@
   "author": "Alexander Radyushin <r.alex.andr@ya.ru> (https://fjedi.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fjedi/npm-package-template/issues"
+    "url": "https://github.com/fjedi/errors/issues"
   },
-  "homepage": "https://github.com/fjedi/npm-package-template#readme",
+  "homepage": "https://github.com/fjedi/errors#readme",
   "dependencies": {},
   "devDependencies": {
     "@types/expect": "24.3.0",

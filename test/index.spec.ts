@@ -1,11 +1,23 @@
-import * as assert from 'assert';
-import someFn from '../src';
+import { DefaultError } from '../src';
 
+const debugData = {};
 
-describe('Test someFn', function () {
-  it('No error expected', async function () {
-    const result = someFn();
+describe('Test custom error class', function () {
+  it('Error must have "data" field with "debugData"', async function () {
+    const e = 'Test error';
+    const result = new DefaultError(e, {
+      meta: { debugData },
+    });
 
-    expect(result).toBe(200);
+    expect(result.data).toMatchObject(debugData);
+  });
+
+  it('Error must have "status" field', async function () {
+    const e = 'Access is denied';
+    const result = new DefaultError(e, {
+      status: 403,
+    });
+
+    expect(result.status).toBe(403);
   });
 });
