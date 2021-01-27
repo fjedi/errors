@@ -20,21 +20,27 @@ export class DefaultError extends Error {
       this.stack = props.originalError.stack;
       this.originalError = props.originalError;
     }
-    this.modelName = props.modelName || '';
-    this.group = props.group || '';
+    if (props.modelName) {
+      this.modelName = props.modelName;
+    }
+    if (props.group) {
+      this.group = props.group;
+    }
+    if (props.meta) {
+      this.data = props.meta;
+    }
     this.status = props.status || 500;
-    this.data = props.meta || {};
   }
-
-  group: string | undefined;
-
-  modelName: string | undefined;
 
   status: number;
 
-  data: ErrorMetaInfo;
+  group?: string;
 
-  originalError: Error | void;
+  modelName?: string;
+
+  data?: ErrorMetaInfo;
+
+  originalError?: Error;
 
   serialize(): ErrorObject {
     return DefaultError.serialize(this);
