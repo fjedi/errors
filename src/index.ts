@@ -1,10 +1,12 @@
-export type ErrorMetaInfo = { [k: string]: any };
+import { serializeError, deserializeError, ErrorObject } from 'serialize-error';
+
+export type ErrorMetaInfo = { [k: string]: unknown };
 
 export type ErrorProps = {
   modelName?: string;
   group?: string;
   status?: number;
-  originalError?: any;
+  originalError?: Error;
   meta?: ErrorMetaInfo;
 };
 
@@ -33,4 +35,16 @@ export class DefaultError extends Error {
   data: ErrorMetaInfo;
 
   originalError: Error | void;
+
+  serialize(): ErrorObject {
+    return DefaultError.serialize(this);
+  }
+
+  static serialize(error: Error | DefaultError): ErrorObject {
+    return serializeError(error);
+  }
+
+  static deserialize(error: ErrorObject): Error {
+    return deserializeError(error);
+  }
 }
