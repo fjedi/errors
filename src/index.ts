@@ -1,6 +1,7 @@
 import { serializeError, deserializeError, ErrorObject } from 'serialize-error';
 
-export type ErrorMetaInfo = { [k: string]: unknown };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type ErrorMetaInfo = { [k: string]: any };
 
 export type ErrorProps = {
   modelName?: string;
