@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/fjedi/errors#readme",
   "dependencies": {
-    "serialize-error": "8.0.1"
+    "serialize-error": "8.1.0"
   },
   "devDependencies": {
     "@types/expect": "24.3.0",
